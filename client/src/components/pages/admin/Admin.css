@@ -1,0 +1,325 @@
+.icon {
+  vertical-align: middle;
+  line-height: 1px;
+  font-size: 20px;
+}
+.icon_header {
+  vertical-align: middle;
+  line-height: 1px;
+  font-size: 26px;
+}
+.icon,
+.icon_header {
+  margin-right: 5px;
+}
+
+.close_icon {
+  color: #181111;
+  margin-left: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    "sidebar header header header"
+    "sidebar main main main";
+  height: 100vh;
+}
+
+/* Header  */
+.header {
+  
+  background-color: #bd149c;
+  grid-area: header;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px 0 30px;
+  
+}
+
+.menu-icon {
+  display: none;
+}
+/* End Header  */
+
+/* Sidebar  */
+#sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  background-color:#bd149c;
+  overflow-y: auto;
+  
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  scrollbar-width: 10px;
+}
+
+#sidebar::-webkit-scrollbar{
+  display: none;
+}
+#sidebar{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px 0px 30px;
+  margin-bottom: 30px;
+}
+/* this is Created By Admin dharma */
+.sidebar-title > span {
+  display: none;
+}
+
+.sidebar-brand {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  height: 50px;
+  width: 180px;
+  color: #7d203c;
+}
+
+
+
+.nestedlist{
+  padding: 0px 29px 0px 14px;
+  font-size: 10px;
+
+}
+
+.nestitemhover:hover {
+  background-color: #60207d;
+  cursor: pointer;
+  
+  border-radius: 5px;
+  font-family: Mongolian Baliti;
+}
+
+.sidebar-list-item{
+  display: flex;
+  width: full;
+  justify-items: center;
+}
+.sidebar-list-item {
+  position: relative; /* Required for positioning the pseudo-element */
+}
+
+.sidebar-list-item:hover {
+  background-color: #60207d;
+  cursor: pointer;
+  font-weight: bolder;
+  font-family: Mongolian Baliti;
+  border-radius: 5px;
+  
+}
+
+.sidebar-list-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px; /* Height of the underline */
+  background-color: rgb(108, 159, 236);
+  transition: width 0.3s ease; /* Duration and timing of the transition */
+}
+
+.sidebar-list-item:hover::after {
+  width: 100%; /* Full width on hover to create the underline animation */
+}
+.nesteditem:hover{ 
+ 
+  /* background-color: #60207d; */
+  cursor: pointer;
+  font-weight: bolder;
+  border-radius: 5px;
+  font-family: Mongolian Baliti;
+}
+
+/* .sidebar-list-item > a {
+  text-decoration: none;
+ 
+
+  transition: color 0.3s ease;
+} */
+
+.sidebar-list-item > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust the underline position */
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: blue; /* Underline color */
+  transition: width 0.3s ease;
+}
+
+.sidebar-list-item > a:hover {
+  color: white; /* Text color on hover */
+  font-weight: bold; /* Font bold on hover */
+}
+
+.sidebar-list-item > a:hover::after {
+  width: 100%; /* Expand underline from left to right */
+}
+
+.sidebar-list-item > a :hover {
+  text-decoration: none;
+  color:  #eadeeb;
+  /* font-size: large; */
+}
+.innerlist{
+  font-size: 25px;
+
+}
+
+.innerlist :hover {
+  text-decoration: none;
+  color: #eadeeb;
+  font-size: 25px;
+}
+
+.innerlistsuperadmin{
+  font-size: 23px;
+  margin-top: 15px;
+}
+
+
+
+.sidebar-responsive {
+  display: inline !important;
+  position: absolute;
+  /*
+    we want the z-index of the sidebar higher so that
+    the charts are not showing over the sidebar 
+    on small screens
+  */
+
+  z-index: 12 !important;
+}
+
+/* End Sidebar  */
+
+/* Main  */
+.main-container {
+  grid-area: main;
+  overflow-y: auto;
+ 
+  color: rgba(255, 255, 255, 0.95);
+}
+.salaryRecord-container {
+  grid-area: main;
+  overflow-y: auto;
+  padding: 20px 2px;
+  /* color: rgba(255, 255, 255, 0.95); */
+}
+
+.responsive-container {
+  grid-area: main;
+  overflow: auto;
+  padding: 20px 20px;
+  background-color: #f1f1f54f;
+  color: black;
+}
+
+.main-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      "header"
+      "main";
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .sidebar-title > span {
+    display: inline;
+  }
+}
+/* Small <= 768px */
+
+@media screen and (max-width: 768px) {
+  .main-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+}
+
+/* Extra Small <= 576px */
+
+@media screen and (max-width: 576px) {
+  .hedaer-left {
+    display: none;
+  }
+}
+
+.inline-container {
+  display: flex; /* Use flexbox for inline layout */
+  align-items: center; /* Align items vertically */
+}
+
+.icon {
+  margin-right: 10px;
+  color:black /* Add some spacing between the icon and text */
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+.header-left {
+  display: flex;
+}
+@media only screen and (max-width: 600px) {
+  .icon1 {
+    font-size: 12px; /* Adjust the font size as per your requirement */
+  }
+
+  .header-left input[type="search"] {
+    width: auto; /* Adjust the width of the input field */
+  }
+}
+.sub-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sub-menu li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sub-menu li .icon {
+  margin-right: 10px;
+}
